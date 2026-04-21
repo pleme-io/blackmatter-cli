@@ -23,5 +23,8 @@
       toolName = "blackmatter-cli";
       src = self;
       repo = "pleme-io/blackmatter-cli";
+    }
+    // {
+      homeManagerModules.default = import ./module;
     };
 }
