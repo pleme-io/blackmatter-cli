@@ -1,0 +1,28 @@
+[package]
+name = "blackmatter-cli"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.89.0"
+description = "Typed CLI for the blackmatter fleet — reports, check orchestration, fleet audits"
+license = "MIT"
+repository = "https://github.com/pleme-io/blackmatter-cli"
+authors = ["drzzln <drzzln@protonmail.com>"]
+
+[[bin]]
+name = "blackmatter-cli"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1"
+clap = { version = "4", features = ["derive"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[lints.clippy]
+pedantic = "warn"
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "z"
+strip = true

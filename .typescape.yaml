@@ -1,0 +1,21 @@
+schema_version: 1
+manifest:
+  name: blackmatter-cli
+  kind: Tool
+  archetype: RustTool
+  description: Typed Rust CLI for the blackmatter fleet — replaces shell-scripted nix run apps.
+dimensions:
+  vocabulary: [blackmatter, cli, fleet-check, ci, report]
+  domains: [Rust, Nix, Shell-IPC]
+  stack: [UserspaceTool]
+  modules: {}
+  render:
+    produces:
+      - "pkgs.blackmatter-cli (binary)"
+      - "multi-platform release artefacts via substrate rust-tool-release-flake.nix"
+  compliance:
+    satisfies: []
+    participates: [fleet-governance]
+  dag:
+    inputs: [nixpkgs, substrate, crate2nix, flake-utils, fenix]
+  attestation: { merkle_root: null, signed_by: null, producer: substrate/rust-tool-release-flake.nix }
