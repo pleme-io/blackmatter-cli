@@ -23,8 +23,12 @@
       toolName = "blackmatter-cli";
       src = self;
       repo = "pleme-io/blackmatter-cli";
-    }
-    // {
-      homeManagerModules.default = import ./module;
+      module = {
+        name = "cli";
+        description = "blackmatter-cli (typed fleet CLI)";
+        hmNamespace = "blackmatter.components";
+        packageAttr = "blackmatter-cli";
+        binaryName = "blackmatter-cli";
+      };
     };
 }
